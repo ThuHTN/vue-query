@@ -32,7 +32,7 @@ const [addAuthor, { data, error, loading }] = useMutation(fetchData, {
 });
 ```
 
-**onSuccess** function is used to refetch query on mutatin by adding keys name
+**onSuccess** function is used to refetch query on mutation by adding keys name
 
 ```html
 <form @submit="addAuthor(author)">
