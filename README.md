@@ -20,6 +20,16 @@ const { data, error, loading } = useQuery<{
 
 In **useQuery** hook, first param is a **key**. This key is used to refetch query by using **useMutation** hook.
 
+```html
+<div v-if="data">
+  <ul>
+    <li v-for="value of data">{{value.author}}</li>
+  </ul>
+</div>
+```
+
+**Important!**. **don't** forget to use **v-if** to prevent arising unexpected errors from fetch
+
 ```typescript
 const fetchData = (author: string) =>
   axios.post("http://localhost:3000/authors", {
