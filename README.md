@@ -2,7 +2,7 @@
 
 vue query hooks like **react-query**
 
-`git clone ...`
+`git clone https://github.com/kritokazuma/vue-query`
 
 `npm run dev` run dev server
 
