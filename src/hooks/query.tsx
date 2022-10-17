@@ -71,16 +71,14 @@ export function useMutation<T>(
     onMounted(() => {
         subscribe = mut.subscribe({
             next: (val) => {
-                if (val) {
-                    data.value = val;
-                    loading.value = false
-                    if (feature && feature.onSuccess) {
-                        feature.onSuccess().forEach(observerName => {
-                            const getIndex = arrayOfObservers.findIndex(obs => obs.value.name === observerName)
-                            const observer = arrayOfObservers[getIndex]
-                            arrayOfObservers[getIndex].next({ name: observer.value.name, renderTimes: observer.value.renderTimes + 1 })
-                        })
-                    }
+                data.value = val;
+                loading.value = false
+                if (feature && feature.onSuccess) {
+                    feature.onSuccess().forEach(observerName => {
+                        const getIndex = arrayOfObservers.findIndex(obs => obs.value.name === observerName)
+                        const { value: { name, renderTimes } } = arrayOfObservers[getIndex]
+                        arrayOfObservers[getIndex].next({ name, renderTimes })
+                    })
                 }
             },
             error: (err) => {

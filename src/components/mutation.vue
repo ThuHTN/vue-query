@@ -19,7 +19,7 @@ const [addAuthor, { data, error, loading }] = useMutation(fetchData, {
 
     <div style="border: 1px solid black">
         Mutation component
-        <form @submit="addAuthor(author)">
+        <form @submit.prevent="addAuthor(author)">
             <input type="text" v-model="author" />
             <button type="submit">Submit</button>
         </form>

@@ -20,5 +20,8 @@ const { data, error, loading } = useQuery<any>('authors', fetchData)
         <div v-else-if="loading">
             ...loading
         </div>
+        <div v-else-if="error">
+            {{error}}
+        </div>
     </div>
 </template>
