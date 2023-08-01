@@ -5,8 +5,6 @@ Introducing Vue Query, a powerful set of hooks inspired by React Query, simplify
 ### Fetch Data with `useQuery`
 
 ```typescript
-import { useQuery } from "vue-query";
-
 const fetchData = () => {
   return axios.get("http://localhost:3000/authors");
 };
@@ -20,8 +18,6 @@ const { data, error, loading } = useQuery<{
 ### Mutate Data with `useMutation`
 
 ```typescript
-import { useMutation } from "vue-query";
-
 const fetchData = (author: string) =>
   axios.post("http://localhost:3000/authors", {
     id: new Date().valueOf(),
